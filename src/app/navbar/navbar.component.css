@@ -1,0 +1,8 @@
+.myNavBar {
+  padding-top: 0.7em;
+}
+
+.myNavBar a {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: rgba(23, 149, 221, 0.829);
+}
