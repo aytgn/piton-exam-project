@@ -11,7 +11,7 @@ export class LessonsService {
     private teachersService: TeacherService,
     private sectionsService: SectionsService
   ) {}
-  //Lessons
+  //Lesson
   private htmlLesson: Lesson = new Lesson(
     0,
     'HTML COURSE',
@@ -20,6 +20,7 @@ export class LessonsService {
     this.sectionsService.getSections(0),
     this.teachersService.getTeachers()[0]
   );
+  //Lesson
   private cssLesson: Lesson = new Lesson(
     1,
     'CSS COURSE',
@@ -28,6 +29,7 @@ export class LessonsService {
     this.sectionsService.getSections(1),
     this.teachersService.getTeachers()[1]
   );
+  //Lesson
   private jsLesson: Lesson = new Lesson(
     2,
     'JS COURSE',
@@ -36,9 +38,9 @@ export class LessonsService {
     this.sectionsService.getSections(2),
     this.teachersService.getTeachers()[2]
   );
+
   //Lessons List
   private lessons: Lesson[] = [this.htmlLesson, this.cssLesson, this.jsLesson];
-
   getLessons(): Lesson[] {
     return this.lessons.slice();
   }

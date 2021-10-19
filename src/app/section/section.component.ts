@@ -19,10 +19,12 @@ export class SectionComponent implements OnInit {
   sectionIndex: number = 0;
   lessonId: number = 0;
   ngOnInit(): void {
+    //get index of section and id of lesson from url
     this.activatedRoute.params.subscribe((param) => {
       this.sectionIndex = param['sectionIndex'];
       this.lessonId = param['id'];
     });
+    //get sectionName corresponding lesson's section.
     this.sectionName = this.sectionsService.getSections(this.lessonId)[
       this.sectionIndex
     ].name;

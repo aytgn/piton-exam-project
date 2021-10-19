@@ -15,7 +15,7 @@ export class SectionsService {
 
   private cssSections: Section[] = [
     { id: 0, name: 'Introducing CSS', videoPath: 'www.youtube.com' },
-    { id: 1, name: "CSS Selectors'", videoPath: 'www.youtube.com' },
+    { id: 1, name: 'CSS Selectors', videoPath: 'www.youtube.com' },
     { id: 2, name: 'CSS Practice', videoPath: 'www.youtube.com' },
     { id: 3, name: 'Integrate CSS Your Site', videoPath: 'www.youtube.com' },
   ];
@@ -29,11 +29,11 @@ export class SectionsService {
 
   getSections(lessonId: number): Section[] {
     if (lessonId == 0) {
-      return this.htmlSections;
+      return this.htmlSections.slice();
     } else if (lessonId == 1) {
-      return this.cssSections;
+      return this.cssSections.slice();
     } else if (lessonId == 2) {
-      return this.jsSections;
-    } else return this.htmlSections;
+      return this.jsSections.slice();
+    } else return this.htmlSections.slice();
   }
 }
