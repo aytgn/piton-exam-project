@@ -7,6 +7,7 @@ import { ExamsComponent } from './exams/exams.component';
 import { CourseComponent } from './course/course.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { SectionComponent } from './section/section.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'exams',
     component: ExamsComponent,
+  },
+  {
+    path: 'lessons/:id/:sectionIndex',
+    component: SectionComponent,
   },
 ];
 

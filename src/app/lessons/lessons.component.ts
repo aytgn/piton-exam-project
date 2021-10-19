@@ -12,7 +12,14 @@ import { Router } from '@angular/router';
 export class LessonsComponent implements OnInit {
   constructor(private lessonService: LessonsService, private router: Router) {}
   //initialization
-  lesson: Lesson = new Lesson(0, '0', '0', '0', [''], new Teacher('0', '0'));
+  lesson: Lesson = new Lesson(
+    0,
+    '0',
+    '0',
+    '0',
+    [{ id: 0, name: '', videoPath: '' }],
+    new Teacher('0', '0')
+  );
   lessons: Lesson[] = [this.lesson];
 
   //myFunctions

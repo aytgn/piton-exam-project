@@ -11,6 +11,8 @@ import { TeacherService } from './services/teachers.service';
 
 import { FormsModule } from '@angular/forms';
 import { CourseComponent } from './course/course.component';
+import { SectionComponent } from './section/section.component';
+import { SectionsService } from './services/sections.service';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,10 @@ import { CourseComponent } from './course/course.component';
     DefaultComponent,
     LessonsComponent,
     CourseComponent,
+    SectionComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [LessonsService, TeacherService],
+  providers: [LessonsService, TeacherService, SectionsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

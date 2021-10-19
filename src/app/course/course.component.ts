@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Lesson } from '../models/lesson.model';
 import { LessonsService } from '../services/lessons.service';
-
+import { Section } from '../models/section.model';
 @Component({
   selector: 'app-course',
   templateUrl: './course.component.html',
@@ -16,7 +16,7 @@ export class CourseComponent implements OnInit {
 
   id: number = 0;
   lesson: Lesson = this.lessonsService.getLessons()[0];
-  sections: string[] = [''];
+  sections: Section[] = [{ id: 0, name: '', videoPath: '' }];
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {
