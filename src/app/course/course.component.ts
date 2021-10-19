@@ -16,6 +16,7 @@ export class CourseComponent implements OnInit {
 
   id: number = 0;
   lesson: Lesson = this.lessonsService.getLessons()[0];
+  sections: string[] = [''];
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params) => {
@@ -25,5 +26,6 @@ export class CourseComponent implements OnInit {
       }
     });
     this.lesson = this.lessonsService.getLessons()[this.id];
+    this.sections = this.lesson.sections;
   }
 }

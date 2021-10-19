@@ -5,6 +5,8 @@ import { DefaultComponent } from './default/default.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { ExamsComponent } from './exams/exams.component';
 import { CourseComponent } from './course/course.component';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -23,7 +25,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

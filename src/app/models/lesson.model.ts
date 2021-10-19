@@ -6,6 +6,7 @@ export class Lesson {
     public name: string,
     public imgPath: string,
     public description: string,
+    public sections: string[],
     public teacher: Teacher
   ) {}
 }

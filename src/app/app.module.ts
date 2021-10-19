@@ -9,14 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { LessonsService } from './services/lessons.service';
 import { TeacherService } from './services/teachers.service';
 
+import { FormsModule } from '@angular/forms';
+import { CourseComponent } from './course/course.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     DefaultComponent,
     LessonsComponent,
+    CourseComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [LessonsService, TeacherService],
   bootstrap: [AppComponent],
 })
