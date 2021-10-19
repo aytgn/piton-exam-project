@@ -14,6 +14,7 @@ export class LessonsComponent implements OnInit {
   //initialization
   lesson: Lesson = new Lesson(0, '0', '0', '0', new Teacher('0', '0'));
   lessons: Lesson[] = [this.lesson];
+
   //myFunctions
   goLessonPage(id: number): void {
     this.router.navigate(['/lessons/' + id]);
