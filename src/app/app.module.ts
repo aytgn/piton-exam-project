@@ -6,6 +6,8 @@ import { DefaultComponent } from './default/default.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LessonsComponent } from './lessons/lessons.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LessonsService } from './services/lessons.service';
+import { TeacherService } from './services/teachers.service';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
     LessonsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [],
+  providers: [LessonsService, TeacherService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
