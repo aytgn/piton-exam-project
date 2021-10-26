@@ -8,11 +8,17 @@ import { CourseComponent } from './course/course.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { SectionComponent } from './section/section.component';
+import { HtmlExamComponent } from './exams/html-exam/html-exam.component';
+import { ResultsComponent } from './results/results.component';
 
 const routes: Routes = [
   {
     path: '',
     component: DefaultComponent,
+  },
+  {
+    path: 'exams',
+    component: ExamsComponent,
   },
   {
     path: 'lessons',
@@ -26,6 +32,14 @@ const routes: Routes = [
   {
     path: 'lessons/:id/:sectionIndex',
     component: SectionComponent,
+  },
+  {
+    path: 'examHtml',
+    component: HtmlExamComponent,
+  },
+  {
+    path: 'examHtml/results',
+    component: ResultsComponent,
   },
 ];
 

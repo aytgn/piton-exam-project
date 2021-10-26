@@ -1,0 +1,28 @@
+<h2>Here is the question</h2>
+<br />
+<hr />
+<h3>{{ currentQuestion.questionTitle }}</h3>
+<br />
+Choices:
+<br />
+<br />
+<form [formGroup]="choicesForm" (ngSubmit)="onSubmit()">
+  <div *ngFor="let choice of choices">
+    <label
+      >{{ choice }}
+      <input
+        type="radio"
+        name="choice"
+        [value]="choice"
+        formControlName="choice"
+      />
+    </label>
+    <br />
+  </div>
+  <br />
+  <button type="submit" (click)="onAnswerClick()">Answer and go next</button>
+</form>
+<br />
+<button (click)="onEndClick()">End Exam!</button>
+<br />
+<br />
