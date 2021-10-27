@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Question } from '../models/exam.model';
 import { ExamService } from '../services/exams.service';
 
@@ -7,39 +8,26 @@ import { ExamService } from '../services/exams.service';
   templateUrl: './results.component.html',
   styleUrls: ['./results.component.css'],
 })
-export class ResultsComponent implements OnInit {
+export class ResultsComponent implements OnInit, OnDestroy {
   constructor(private examsService: ExamService) {}
 
-  answerChecks: boolean[] = [];
+  correctAnswersSub: Subscription = new Subscription();
   correctAnswers: string[] = [];
   userAnswers: string[] = [];
   questions: Question[] = [];
   //LIFECYCLE METHODS
   ngOnInit() {
-    this.examsService.getHtmlQuestions().subscribe((questions: Question[]) => {
-      this.questions = questions;
-    });
-    this.examsService.getHtmlAnswers().subscribe((answers) => {
-      this.correctAnswers = answers;
-    });
     this.userAnswers = this.examsService.getUserAnswers();
-    this.checkAnswers();
+    this.correctAnswersSub = this.examsService
+      .getHtmlAnswers()
+      .subscribe((answers) => {
+        this.correctAnswers = answers;
+        console.log(this.correctAnswers);
+      });
+  }
+  ngOnDestroy() {
+    this.correctAnswersSub.unsubscribe();
   }
 
   //METHODS
-  checkAnswers() {
-    if (this.userAnswers.length === this.correctAnswers.length) {
-      const answerChecks: boolean[] = [];
-      for (const [i, answer] of this.userAnswers.entries()) {
-        this.userAnswers[i] === this.correctAnswers[i]
-          ? answerChecks.push(true)
-          : answerChecks.push(false);
-      }
-      this.answerChecks = answerChecks;
-    } else console.log('not all questions Answered!');
-    console.log(this.answerChecks);
-  }
-  trying() {
-    this.checkAnswers();
-  }
 }

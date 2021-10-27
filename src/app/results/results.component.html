@@ -5,10 +5,11 @@
     <div
       class="card"
       style="width: 18rem"
-      [ngClass]="{
-        correctAnswer: answerChecks[i],
-        wrongAnswer: !answerChecks[i]
-      }"
+      [ngClass]="
+        userAnswers[i] === question.correctValue
+          ? 'correctAnswer'
+          : 'wrongAnswer'
+      "
     >
       <div class="card-body">
         <h5 class="card-title">Question: {{ question.questionId }}</h5>
@@ -32,5 +33,5 @@
   </div>
   <br />
 </div>
-<button (click)="trying()">Try!</button>
+
 <br />

@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subject, Subscription } from 'rxjs';
@@ -109,6 +109,7 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
         }
         if (this.currentQuestion.questionId >= 3) {
           alert('time is up!,confirm to proceed results page');
+          this.examService.setUserAnswers(this.userAnswersArr);
           this.router.navigate(['examHtml/results']);
         }
       }
