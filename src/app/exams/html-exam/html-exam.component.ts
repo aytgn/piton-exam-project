@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Question } from 'src/app/models/exam.model';
 import { ExamService } from 'src/app/services/exams.service';
 
@@ -28,18 +28,27 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
   };
   paramChangeSubs: Subscription = new Subscription();
   getQuestionsSubs: Subscription = new Subscription();
+  clockChange: Subject<number> = new Subject();
+  clockSubs: Subscription = new Subscription();
   choicesForm = new FormGroup({
     choice: new FormControl(''),
   });
   selectedChoiceValue: string = '';
   choices: string[] = [];
   userAnswersArr: string[] = [];
+  clock: number = 5;
+  clockInterval: any;
 
   //LIFECYCLE METHODS
   ngOnInit() {
     const questionId = this.route.snapshot.queryParams.questionId;
     this.paramChangeSubs = this.examService.paramChanged.subscribe(
       (questionId) => {
+        let queryParams: Params = { questionId: this.questionId };
+        this.router.navigate([], {
+          relativeTo: this.route,
+          queryParams: queryParams,
+        });
         this.getQuestionsSubs = this.examService
           .getHtmlQuestions()
           .subscribe((questions: Question[]) => {
@@ -54,22 +63,21 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
     );
     this.examService.paramChanged.next(questionId);
     this.onChanges();
+    this.clockTick();
   }
   ngOnDestroy() {
     this.paramChangeSubs.unsubscribe();
     this.getQuestionsSubs.unsubscribe();
+    this.clockSubs.unsubscribe();
+    clearInterval(this.clockInterval);
   }
   //METHODS
   onSubmit() {}
   onAnswerClick() {
     this.userAnswersArr.push(this.selectedChoiceValue);
     this.questionId++;
-    const queryParams: Params = { questionId: this.questionId };
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: queryParams,
-    });
     this.examService.paramChanged.next(this.questionId);
+    this.clock = 5;
   }
   onChanges() {
     // not ngOnChanges!!
@@ -80,5 +88,19 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
   onEndClick() {
     this.examService.setUserAnswers(this.userAnswersArr);
     this.router.navigate(['examHtml/results']);
+  }
+  clockTick() {
+    this.clockInterval = this.clockInterval = setInterval(() => {
+      if (this.clock > 0) {
+        this.clock--;
+      }
+      if (this.clock <= 0) {
+        alert('time is up!,confirm to proceed next question');
+        this.questionId++;
+        this.examService.paramChanged.next(this.questionId);
+        this.clock = 5;
+      }
+      this.clockChange.next(this.clock);
+    }, 1000);
   }
 }

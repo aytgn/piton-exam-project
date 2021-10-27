@@ -1,6 +1,19 @@
-<h4>Choose your exam</h4>
+<h4>Test Your Knowledge!</h4>
 <hr />
-<div>
-  <h5>HTML EXAM</h5>
-  <a routerLink="/examHtml" [queryParams]="{ questionId: 0 }"> take exam! </a>
+<br />
+
+<div class="card">
+  <div class="card-header">HTML EXAM</div>
+  <div class="card-body">
+    <h5 class="card-title">Test your html knowledge</h5>
+    <p class="card-text">
+      10 question, you have 30 seconds to answer each question... Good Luck!
+    </p>
+    <a
+      routerLink="/examHtml"
+      [queryParams]="{ questionId: 0 }"
+      class="btn btn-primary"
+      >Start Exam!</a
+    >
+  </div>
 </div>

@@ -33,6 +33,6 @@ export class ResultsComponent implements OnInit {
       }
       this.answerChecks = answerChecks;
       console.log(this.answerChecks);
-    } else console.log('errror');
+    } else console.log('not all questions Answered!');
   }
 }
