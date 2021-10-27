@@ -22,7 +22,7 @@ export class ResultsComponent implements OnInit {
   //METHODS
   trying() {
     console.log('correct', this.correctAnswers);
-    console.log('user', this.userAnswers);
+    console.log('userAnswers ', this.userAnswers);
 
     if (this.userAnswers.length === this.correctAnswers.length) {
       const answerChecks: boolean[] = [];

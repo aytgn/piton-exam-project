@@ -41,7 +41,7 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
 
   //LIFECYCLE METHODS
   ngOnInit() {
-    const questionId = this.route.snapshot.queryParams.questionId;
+    this.questionId = this.route.snapshot.queryParams.questionId;
     this.paramChangeSubs = this.examService.paramChanged.subscribe(
       (questionId) => {
         let queryParams: Params = { questionId: this.questionId };
@@ -61,7 +61,8 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
           });
       }
     );
-    this.examService.paramChanged.next(questionId);
+    this.examService.paramChanged.next(this.questionId);
+
     this.onChanges();
     this.clockTick();
   }
@@ -74,10 +75,14 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
   //METHODS
   onSubmit() {}
   onAnswerClick() {
-    this.userAnswersArr.push(this.selectedChoiceValue);
+    this.userAnswersArr.push(
+      this.selectedChoiceValue ? this.selectedChoiceValue : 'X'
+    );
     this.questionId++;
     this.examService.paramChanged.next(this.questionId);
     this.clock = 5;
+    console.log('chosen value:', this.selectedChoiceValue);
+    console.log('new userAnswers Array: ', this.userAnswersArr);
   }
   onChanges() {
     // not ngOnChanges!!
@@ -86,6 +91,9 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
     });
   }
   onEndClick() {
+    this.userAnswersArr.push(
+      this.selectedChoiceValue ? this.selectedChoiceValue : 'X'
+    );
     this.examService.setUserAnswers(this.userAnswersArr);
     this.router.navigate(['examHtml/results']);
   }
@@ -95,10 +103,14 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
         this.clock--;
       }
       if (this.clock <= 0) {
-        alert('time is up!,confirm to proceed next question');
-        this.questionId++;
-        this.examService.paramChanged.next(this.questionId);
-        this.clock = 5;
+        if (this.currentQuestion.questionId < 3) {
+          alert('time is up!,confirm to proceed next question');
+          this.onAnswerClick();
+        }
+        if (this.currentQuestion.questionId >= 3) {
+          alert('time is up!,confirm to proceed results page');
+          this.router.navigate(['examHtml/results']);
+        }
       }
       this.clockChange.next(this.clock);
     }, 1000);

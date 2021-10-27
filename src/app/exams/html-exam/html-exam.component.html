@@ -10,7 +10,7 @@
     <div class="question ml-sm-5 pl-sm-5 pt-2">
       <div class="py-2 h5">
         <b
-          >Question {{ currentQuestion.questionId + 1 }}:
+          >Question {{ currentQuestion.questionId }}:
           {{ currentQuestion.questionTitle }}
         </b>
       </div>
@@ -33,7 +33,7 @@
       <br />
     </div>
     <div class="d-flex align-items-center pt-3">
-      <div>
+      <div [hidden]="currentQuestion.questionId === 3">
         <button type="submit" (click)="onAnswerClick()" class="btn btn-primary">
           Answer and go next
         </button>
