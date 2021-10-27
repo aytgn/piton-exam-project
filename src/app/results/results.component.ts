@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Question } from '../models/exam.model';
 import { ExamService } from '../services/exams.service';
 
 @Component({
@@ -12,18 +13,21 @@ export class ResultsComponent implements OnInit {
   answerChecks: boolean[] = [];
   correctAnswers: string[] = [];
   userAnswers: string[] = [];
+  questions: Question[] = [];
   //LIFECYCLE METHODS
   ngOnInit() {
+    this.examsService.getHtmlQuestions().subscribe((questions: Question[]) => {
+      this.questions = questions;
+    });
     this.examsService.getHtmlAnswers().subscribe((answers) => {
       this.correctAnswers = answers;
     });
     this.userAnswers = this.examsService.getUserAnswers();
+    this.checkAnswers();
   }
-  //METHODS
-  trying() {
-    console.log('correct', this.correctAnswers);
-    console.log('userAnswers ', this.userAnswers);
 
+  //METHODS
+  checkAnswers() {
     if (this.userAnswers.length === this.correctAnswers.length) {
       const answerChecks: boolean[] = [];
       for (const [i, answer] of this.userAnswers.entries()) {
@@ -32,7 +36,10 @@ export class ResultsComponent implements OnInit {
           : answerChecks.push(false);
       }
       this.answerChecks = answerChecks;
-      console.log(this.answerChecks);
     } else console.log('not all questions Answered!');
+    console.log(this.answerChecks);
+  }
+  trying() {
+    this.checkAnswers();
   }
 }

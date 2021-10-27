@@ -1,2 +1,36 @@
 <h2>Results Component Works!</h2>
-<button (click)="trying()">Dene</button>
+<div *ngIf="userAnswers && questions">
+  <div *ngFor="let question of questions; let i = index">
+    <br />
+    <div
+      class="card"
+      style="width: 18rem"
+      [ngClass]="{
+        correctAnswer: answerChecks[i],
+        wrongAnswer: !answerChecks[i]
+      }"
+    >
+      <div class="card-body">
+        <h5 class="card-title">Question: {{ question.questionId }}</h5>
+        <p class="card-text">
+          {{ question.questionTitle }}
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li
+          class="list-group-item"
+          *ngFor="let choice of question.questionChoices"
+          [ngClass]="{
+            correctChoice: choice === question.correctValue,
+            userChoice: choice === userAnswers[i]
+          }"
+        >
+          {{ choice }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br />
+</div>
+<button (click)="trying()">Try!</button>
+<br />

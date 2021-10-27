@@ -1,0 +1,15 @@
+.correctAnswer {
+  background-color: green;
+}
+
+.wrongAnswer {
+  background-color: red;
+}
+
+.userChoice {
+  background-color: yellow;
+}
+
+.correctChoice {
+  background-color: green;
+}
