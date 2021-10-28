@@ -41,7 +41,6 @@ export class ExamService {
   }
 
   getUserAnswers() {
-    console.log(this.userAnswers);
     return this.userAnswers;
   }
 }

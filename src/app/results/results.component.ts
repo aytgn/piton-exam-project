@@ -11,6 +11,7 @@ import { ExamService } from '../services/exams.service';
 export class ResultsComponent implements OnInit, OnDestroy {
   constructor(private examsService: ExamService) {}
 
+  questionsSub: Subscription = new Subscription();
   correctAnswersSub: Subscription = new Subscription();
   correctAnswers: string[] = [];
   userAnswers: string[] = [];
@@ -24,10 +25,14 @@ export class ResultsComponent implements OnInit, OnDestroy {
         this.correctAnswers = answers;
         console.log(this.correctAnswers);
       });
+    this.questionsSub = this.examsService
+      .getHtmlQuestions()
+      .subscribe((questions: Question[]) => {
+        this.questions = questions;
+      });
   }
   ngOnDestroy() {
     this.correctAnswersSub.unsubscribe();
   }
-
   //METHODS
 }
