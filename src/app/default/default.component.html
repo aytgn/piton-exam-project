@@ -1,27 +1,63 @@
-<div class="container">
-  <div class="myGreeting">
-    <h4>Welcome to Online Learning Platform!</h4>
+<div class="container-fluid card">
+  <div class="greetingmreeting">
+    <div class="myGreeting">
+      <h4>Uzaktan Eğitim Sistemi</h4>
+    </div>
+    <div class="myIntroduction">
+      <p>
+        Culpa est duis est magna sunt eiusmod non aliqua. Sint commodo fugiat
+        dolor ullamco culpa aute exercitation laborum ullamco irure in ut.
+        Eiusmod deserunt ea et quis voluptate excepteur est sit id cupidatat
+        quis. Adipisicing anim exercitation deserunt officia ad consectetur.
+        Laborum eu mollit aliqua exercitation veniam ex aliqua non consequat do
+        incididunt.
+      </p>
+      <br />
+    </div>
+    <br />
   </div>
-  <div class="myIntroduction">
-    <p>
-      Culpa est duis est magna sunt eiusmod non aliqua. Sint commodo fugiat
-      dolor ullamco culpa aute exercitation laborum ullamco irure in ut. Eiusmod
-      deserunt ea et quis voluptate excepteur est sit id cupidatat quis.
-      Adipisicing anim exercitation deserunt officia ad consectetur. Laborum eu
-      mollit aliqua exercitation veniam ex aliqua non consequat do incididunt.
-    </p>
-  </div>
-  <div class="myNavContainer">
+  <br />
+  <div class="container">
     <div class="row">
-      <div class="myNavButton col">
-        <button type="button" class="btn btn-primary" routerLink="lessons">
-          Go To Lessons!
-        </button>
+      <div class="col yukariIt">
+        <div class="img">
+          <a routerLink="lessons/0">
+            <img
+              class="img-fluid"
+              src="http://localhost:4200/assets/html-course-logo.png"
+            />
+          </a>
+        </div>
       </div>
-      <div class="myNavButton col">
-        <button type="button" class="btn btn-primary" routerLink="exams">
-          Take an Exam!
-        </button>
+      <div class="col yukariIt">
+        <a routerLink="lessons/1">
+          <img
+            class="img-fluid"
+            src="http://localhost:4200/assets/css-course-logo.jpg"
+          />
+        </a>
+      </div>
+      <div class="col yukariIt">
+        <a routerLink="lessons/2">
+          <img
+            class="img-fluid"
+            src="http://localhost:4200/assets/js-course-logo.png"
+          />
+        </a>
+      </div>
+    </div>
+    <div class="myNavContainer">
+      <div class="row">
+        <div class="myNavButton col">
+          <button type="button" class="btn btn-primary" routerLink="lessons">
+            Go To Lessons!
+          </button>
+        </div>
+        <div class="myNavButton col">
+          <button type="button" class="btn btn-primary" routerLink="exams">
+            Take an Exam!
+          </button>
+        </div>
       </div>
     </div>
   </div>

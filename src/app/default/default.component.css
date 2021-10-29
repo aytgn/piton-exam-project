@@ -1,16 +1,29 @@
 .myGreeting h4 {
   text-align: center;
+  margin-top: 2em;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   color: rgba(23, 149, 221, 0.829);
+}
+.myIntroduction {
+  height: 50vh;
+  padding-right: -2em;
 }
 
 .myIntroduction p {
   padding-top: 2em;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 17px;
+  padding-right: 1.25em;
+  text-indent: 2em;
+  text-align: justify;
 }
 
 .myNavContainer {
-  padding-top: 4em;
-  padding-left: 4em;
+  padding-top: 5em;
+  padding-left: 9em;
+  padding-bottom: 5em;
+}
+
+.yukariIt{
+  margin-top: -20vh;
 }

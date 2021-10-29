@@ -2,9 +2,9 @@
   "questions": [
     {
       "questionId": 1,
-      "questionTitle": "Just Click A",
-      "questionChoices": ["A", "B", "C", "D"],
-      "correctValue": "A"
+      "questionTitle": "Bugün ne giysem?",
+      "questionChoices": ["Elbise", "Kazak", "Pantolon", "Etek"],
+      "correctValue": "Kazak"
     },
     {
       "questionId": 2,
