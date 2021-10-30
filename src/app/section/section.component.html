@@ -1,17 +1,23 @@
 <h2>{{ sectionName }}</h2>
 <hr />
-<br />
-<p>
-  Lorem nisi nulla culpa aliqua aliqua cupidatat laborum elit ad. Occaecat sunt
-  sit amet deserunt enim culpa in fugiat labore id laborum. Amet velit
-  consectetur commodo dolor sit occaecat enim.
-</p>
-<iframe
-  width="560"
-  height="315"
-  [src]="safeUrl"
-  title="YouTube video player"
-  frameborder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen
-></iframe>
+<div style="padding-left: 2em">
+  <br />
+  <p>
+    Lorem nisi nulla culpa aliqua aliqua cupidatat laborum elit ad. Occaecat
+    sunt sit amet deserunt enim culpa in fugiat labore id laborum. Amet velit
+    consectetur commodo dolor sit occaecat enim.
+  </p>
+  <div class="container" style="padding-left: 5em">
+    <div class="row col-11">
+      <iframe
+        width="560"
+        height="315"
+        [src]="safeUrl"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
