@@ -1,31 +1,41 @@
 <div class="list-group">
-  <a
-    [routerLink]="section.id.toString()"
-    class="list-group-item list-group-item-action"
-    *ngFor="let section of sections"
-  >
+  <h2 class="text-secondary text-center">Bölümler</h2>
+  <br />
+  <div *ngFor="let section of sections; let i = index">
     <div class="container">
       <div class="row">
-        <div class="my-section-name col">
-          <h6>
-            {{ section.name }}
-          </h6>
+        <div class="my-section-name col-8">
+          <a
+            [routerLink]="section.id.toString()"
+            class="list-group-item list-group-item-action"
+          >
+            <h6>
+              <strong>{{ i + 1 }}. Bölüm:</strong> {{ section.name }}
+            </h6>
+          </a>
         </div>
-        <div class="my-icon-group col" style="padding-left: 10rem">
-          <i
-            class="bi bi-file-earmark-text-fill"
-            style="font-size: 3rem; padding-right: 15px"
-          ></i>
-          <i
-            class="bi bi-play-btn-fill"
-            style="font-size: 3rem; padding-right: 15px"
-          ></i>
-          <i
-            class="bi bi-download"
-            style="font-size: 3rem; padding-right: 5px"
-          ></i>
+        <div class="my-icons-container col-4">
+          <div class="col">
+            <i
+              class="bi bi-file-earmark-text-fill my-icon my-icon-gray"
+              title="Dersin sınavına git"
+            ></i>
+            <i
+              class="bi bi-play-btn-fill my-icon my-icon-red"
+              title="Dersi izle"
+            ></i>
+            <i
+              class="bi bi-download my-icon"
+              title="Ders notlarını indir"
+            ></i>
+          </div>
         </div>
       </div>
     </div>
-  </a>
+
+    <br />
+    <br />
+  </div>
+
+  <hr />
 </div>

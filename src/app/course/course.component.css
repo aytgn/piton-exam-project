@@ -1,7 +1,29 @@
-.my-list-group{
+.my-list-group {
   padding-top: 5vh;
 }
 
-h6{
+h6 {
   padding-top: 1rem;
+}
+
+.my-icons-container {
+  padding-left: 40px;
+  padding-top: 5px;
+}
+
+.my-icon {
+  font-size: 1.9em;
+  padding-right: 25px;
+  padding-left: 5px;
+}
+
+.my-icon:hover {
+  cursor: pointer;
+}
+
+.my-icon-red {
+  color: red;
+}
+.my-icon-gray {
+  color: gray;
 }
