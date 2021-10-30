@@ -17,48 +17,61 @@
     <br />
   </div>
   <br />
-  <div class="container">
+  <div class="container yukariIt">
     <div class="row">
-      <div class="col yukariIt">
+      <h3 class="text-center">Bir Derse Başla!</h3>
+      <hr />
+    </div>
+    <div class="row">
+      <div class="col">
         <div class="img">
           <a routerLink="lessons/0">
             <img
-              class="img-fluid"
+              class="img-fluid hovernow myBorder"
               src="http://localhost:4200/assets/html-course-logo.png"
             />
           </a>
         </div>
       </div>
-      <div class="col yukariIt">
+      <div class="col">
         <a routerLink="lessons/1">
           <img
-            class="img-fluid"
+            class="img-fluid hovernow myBorder"
             src="http://localhost:4200/assets/css-course-logo.jpg"
           />
         </a>
       </div>
-      <div class="col yukariIt">
+      <div class="col">
         <a routerLink="lessons/2">
           <img
-            class="img-fluid"
+            class="img-fluid hovernow myBorder"
             src="http://localhost:4200/assets/js-course-logo.png"
           />
         </a>
       </div>
     </div>
-    <div class="myNavContainer">
+    <div class="myNavContainer container">
       <div class="row">
-        <div class="myNavButton col">
-          <button type="button" class="btn btn-primary" routerLink="lessons">
-            Go To Lessons!
-          </button>
-        </div>
-        <div class="myNavButton col">
-          <button type="button" class="btn btn-primary" routerLink="exams">
-            Take an Exam!
-          </button>
-        </div>
+        <button
+          type="button"
+          class="btn btn-success btn-lg btn-block center-blok"
+          routerLink="lessons"
+        >
+          DERSLER SAYFASI
+        </button>
       </div>
+      <br />
+      <div class="row">
+        <button
+          type="button"
+          class="btn btn-primary btn-lg btn-block"
+          routerLink="exams"
+        >
+          SINAVLAR SAYFASI
+        </button>
+      </div>
+      <br />
+      <br />
     </div>
   </div>
 </div>

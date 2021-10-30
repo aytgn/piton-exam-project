@@ -8,6 +8,9 @@
   height: 50vh;
   padding-right: -2em;
 }
+.greetingmreeting {
+  cursor: default;
+}
 
 .myIntroduction p {
   padding-top: 2em;
@@ -20,10 +23,27 @@
 
 .myNavContainer {
   padding-top: 5em;
-  padding-left: 9em;
+
   padding-bottom: 5em;
 }
 
-.yukariIt{
-  margin-top: -20vh;
+.yukariIt {
+  margin-top: -25vh;
+}
+
+body {
+  background-color: white;
+}
+
+.hovernow {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.hovernow:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+.myBorder {
+  border-radius: 25px;
 }
