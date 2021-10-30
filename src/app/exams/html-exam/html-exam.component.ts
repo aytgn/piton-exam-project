@@ -36,7 +36,7 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
   selectedChoiceValue: string = '';
   choices: string[] = [];
   userAnswersArr: string[] = [];
-  clock: number = 5;
+  clock: number = 30;
   clockInterval: any;
 
   //LIFECYCLE METHODS
@@ -80,7 +80,7 @@ export class HtmlExamComponent implements OnInit, OnDestroy {
     );
     this.questionId++;
     this.examService.paramChanged.next(this.questionId);
-    this.clock = 5;
+    this.clock = 30;
     console.log('chosen value:', this.selectedChoiceValue);
     console.log('new userAnswers Array: ', this.userAnswersArr);
   }

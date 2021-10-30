@@ -1,8 +1,8 @@
-.myGreeting h4 {
+.myGreeting h3 {
   text-align: center;
   margin-top: 2em;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  color: rgba(23, 149, 221, 0.829);
+  color: rgba(23, 148, 221, 0.911);
 }
 .myIntroduction {
   height: 50vh;
@@ -10,6 +10,10 @@
 }
 .greetingmreeting {
   cursor: default;
+}
+
+h3 {
+  color: rgba(23, 148, 221, 0.911);
 }
 
 .myIntroduction p {

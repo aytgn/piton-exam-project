@@ -2,15 +2,16 @@
 <br />
 <hr />
 <br />
-<h5>
-  Remaining Time for this Question: <b>{{ clock }}</b> seconds
+<br />
+<h5 class="text-center">
+  Soru için kalan süre: <b>{{ clock }}</b> seconds
 </h5>
 <form [formGroup]="choicesForm" (ngSubmit)="onSubmit()">
   <div class="container mt-sm-5 my-1">
     <div class="question ml-sm-5 pl-sm-5 pt-2">
       <div class="py-2 h5">
         <b
-          >Question {{ currentQuestion.questionId }}:
+          >Soru {{ currentQuestion.questionId }}:
           {{ currentQuestion.questionTitle }}
         </b>
       </div>
@@ -34,13 +35,17 @@
     </div>
     <div class="d-flex align-items-center pt-3">
       <div [hidden]="currentQuestion.questionId === 3">
-        <button type="submit" (click)="onAnswerClick()" class="btn btn-primary">
-          Answer and go next
+        <button
+          type="submit"
+          (click)="onAnswerClick()"
+          class="btn btn-success btn-lg my-saga-it"
+        >
+          Yanıtla ve sonraki soruya geç
         </button>
       </div>
       <div class="ml-auto mr-sm-5">
-        <button (click)="onEndClick()" class="btn btn-success">
-          End Exam!
+        <button (click)="onEndClick()" class="btn btn-danger btn-lg">
+          Sınavı Bitir
         </button>
       </div>
     </div>

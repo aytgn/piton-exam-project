@@ -2,15 +2,15 @@
   "questions": [
     {
       "questionId": 1,
-      "questionTitle": "Bugün ne giysem?",
-      "questionChoices": ["Elbise", "Kazak", "Pantolon", "Etek"],
-      "correctValue": "Kazak"
+      "questionTitle": "HTML doğru cevap? ",
+      "questionChoices": ["HTML", "HTTP", "HTTPS", "HTC"],
+      "correctValue": "HTML"
     },
     {
       "questionId": 2,
-      "questionTitle": "Just Click B",
-      "questionChoices": ["A", "B", "C", "D"],
-      "correctValue": "B"
+      "questionTitle": "1. sık dogru cevap",
+      "questionChoices": ["1. sık", "2. sık", "3. sık", "4. sık"],
+      "correctValue": "1. sık"
     },
     {
       "questionId": 3,

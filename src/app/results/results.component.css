@@ -1,15 +1,15 @@
-.correctAnswer {
-  background-color: green;
-}
-
-.wrongAnswer {
-  background-color: red;
-}
-
 .userChoice {
-  background-color: yellow;
+  background-color: rgba(199, 63, 63, 0.726);
 }
 
 .correctChoice {
-  background-color: green;
+  background-color: rgba(87, 202, 87, 0.733);
+}
+
+.card-body {
+  background-color: rgba(128, 128, 128, 0.568);
+}
+
+.card {
+  border: 2px solid gray;
 }

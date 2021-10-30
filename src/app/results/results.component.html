@@ -1,32 +1,39 @@
-<h2>Results Component Works!</h2>
-<div *ngIf="userAnswers && questions">
-  <div *ngFor="let question of questions; let i = index">
-    <br />
-    <div
-      class="card"
-      style="width: 18rem"
-    >
-      <div class="card-body">
-        <h5 class="card-title">Question: {{ question.questionId }}</h5>
-        <p class="card-text">
-          {{ question.questionTitle }}
-        </p>
+<h2 class="text-secondary text-center">Sınav Sonuçları</h2>
+<hr />
+<br />
+<div>
+  <h5>
+    Sınav Tamamlandı, Puanınız : <strong> {{ examPoint.toFixed(2) }} </strong>
+  </h5>
+</div>
+<div class="container d-flex justify-content-center">
+  <div class="row">
+    <div *ngIf="userAnswers && questions" class="center-block">
+      <div *ngFor="let question of questions; let i = index">
+        <br />
+        <div class="card" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">{{ question.questionId }}. Soru</h5>
+            <p class="card-text">
+              {{ question.questionTitle }}
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item"
+              *ngFor="let choice of question.questionChoices"
+              [ngClass]="{
+                correctChoice: choice === question.correctValue,
+                userChoice: choice === userAnswers[i]
+              }"
+            >
+              {{ choice }}
+            </li>
+          </ul>
+        </div>
+        <br />
       </div>
-      <ul class="list-group list-group-flush">
-        <li
-          class="list-group-item"
-          *ngFor="let choice of question.questionChoices"
-          [ngClass]="{
-            correctChoice: choice === question.correctValue,
-            userChoice: choice === userAnswers[i]
-          }"
-        >
-          {{ choice }}
-        </li>
-      </ul>
+      <br />
     </div>
   </div>
-  <br />
 </div>
-
-<br />

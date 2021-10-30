@@ -16,6 +16,8 @@ export class ResultsComponent implements OnInit, OnDestroy {
   correctAnswers: string[] = [];
   userAnswers: string[] = [];
   questions: Question[] = [];
+  examPoint: number = 0;
+  numberOfCorrectAnswers: number = 0;
   //LIFECYCLE METHODS
   ngOnInit() {
     this.userAnswers = this.examsService.getUserAnswers();
@@ -23,16 +25,33 @@ export class ResultsComponent implements OnInit, OnDestroy {
       .getHtmlAnswers()
       .subscribe((answers) => {
         this.correctAnswers = answers;
-        console.log(this.correctAnswers);
       });
     this.questionsSub = this.examsService
       .getHtmlQuestions()
       .subscribe((questions: Question[]) => {
         this.questions = questions;
+        console.log('questions length:', this.questions.length);
+        for (let [i, question] of questions.entries()) {
+          if (question.correctValue === this.userAnswers[i]) {
+            this.numberOfCorrectAnswers++;
+          }
+        }
+        this.examPoint = this.getExamPoint(
+          this.numberOfCorrectAnswers,
+          this.questions.length
+        );
       });
   }
   ngOnDestroy() {
     this.correctAnswersSub.unsubscribe();
+    this.questionsSub.unsubscribe();
   }
   //METHODS
+  getExamPoint(numberOfCorrectAnswers: number, examLength: number) {
+    if (examLength != 0) {
+      return (numberOfCorrectAnswers * 100) / examLength;
+    } else {
+      return 0;
+    }
+  }
 }
