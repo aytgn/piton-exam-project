@@ -1,0 +1,10 @@
+<div class="container my-lesson-container">
+  <div class="row">
+    <h4 class="text-secondary">Şimdi Alabileceğiniz Dersler</h4>
+  </div>
+  <hr style="margin-left: -70px" />
+  <br />
+  <div class="row container" *ngFor="let lesson of lessons">
+    <app-lessonCard [lesson]="lesson"></app-lessonCard>
+  </div>
+</div>

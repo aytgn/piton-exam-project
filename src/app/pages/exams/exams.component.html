@@ -1,0 +1,8 @@
+<h4 class="text-secondary">Şimdi Girebileceğiniz Sınavlar</h4>
+<hr />
+<br />
+<div *ngFor="let exam of exams">
+  <br />
+  <app-exam-card [exam]="exam"></app-exam-card>
+  <br />
+</div>

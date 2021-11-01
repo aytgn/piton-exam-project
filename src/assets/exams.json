@@ -1,0 +1,22 @@
+{
+  "exams": {
+    "html": {
+      "title": "HTML Exam",
+      "description": "HTML hakkında bildiklerinizi sınayın",
+      "numOfQuestions": 3,
+      "timePerQuestion": 30
+    },
+    "css": {
+      "title": "CSS Exam",
+      "description": "CSS hakkında bildiklerinizi sınayın",
+      "numOfQuestions": 3,
+      "timePerQuestion": 30
+    },
+    "js": {
+      "title": "JS Exam",
+      "description": "JS hakkında bildiklerinizi sınayın",
+      "numOfQuestions": 3,
+      "timePerQuestion": 30
+    }
+  }
+}

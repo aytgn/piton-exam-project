@@ -1,0 +1,10 @@
+<div class="list-group">
+  <h2 class="text-secondary text-center">Bölümler</h2>
+  <br />
+  <div *ngFor="let section of sections; let i = index">
+    <app-section-bar [section]="section" [i]="i"></app-section-bar>
+    <br />
+    <br />
+  </div>
+  <hr />
+</div>

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header">
+    <strong> {{ exam.title }}</strong>
+  </div>
+  <div class="card-body">
+    <br />
+    <h5 class="card-title">{{ exam.description }}</h5>
+    <p class="card-text">
+      <strong> {{ exam.numOfQuestions }}</strong> Soru, Her bir soru için
+      <strong>{{ exam.timePerQuestion }}</strong> saniyeniz bulunmakta, bol
+      şans!
+    </p>
+    <br />
+    <a
+      [routerLink]="['/examHtml']"
+      [queryParams]="{ questionId: 1 }"
+      class="btn btn-primary"
+      >Sınava Başla</a
+    >
+  </div>
+</div>

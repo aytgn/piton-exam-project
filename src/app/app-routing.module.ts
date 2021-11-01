@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { DefaultComponent } from './default/default.component';
-import { LessonsComponent } from './lessons/lessons.component';
-import { ExamsComponent } from './exams/exams.component';
-import { CourseComponent } from './course/course.component';
+import { DefaultComponent } from './pages/home/default.component';
+import { LessonsComponent } from './pages/lessons/lessons.component';
+import { ExamsComponent } from './pages/exams/exams.component';
+import { CourseComponent } from './pages/course/course.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { SectionComponent } from './section/section.component';
-import { HtmlExamComponent } from './exams/html-exam/html-exam.component';
-import { ResultsComponent } from './results/results.component';
+import { SectionComponent } from './pages/lesson-section/section.component';
+import { HtmlExamComponent } from './shared/html-exam/html-exam.component';
+import { ResultsComponent } from './pages/results/results.component';
 
 const routes: Routes = [
   {
